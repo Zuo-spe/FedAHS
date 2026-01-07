@@ -16,15 +16,15 @@ from aggregate_models import aggrated_FedAvg, aggrated_FedAvg_with_R
 # Argument parsing
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="FedAHS")
 parser.add_argument('-g', '--gpu', type=str, default='1', help='gpu id to use(GPU is:0,CPU is：1)')
-parser.add_argument('-nc', '--num_of_clients', type=int, default=10, help='number of the clients')#客户端数量
-parser.add_argument('-cf', '--cfraction', type=float, default=1,help='C fraction, 0 means 1 client, 1 means total clients')  # 每一轮参与客户端的比例
-parser.add_argument('-E', '--epoch', type=int, default=5, help='local train epoch')  # 客户端训练的次数
+parser.add_argument('-nc', '--num_of_clients', type=int, default=10, help='number of the clients')
+parser.add_argument('-cf', '--cfraction', type=float, default=1,help='C fraction, 0 means 1 client, 1 means total clients')  
+parser.add_argument('-E', '--epoch', type=int, default=5, help='local train epoch')  
 parser.add_argument('-B', '--batchsize', type=int, default=64, help='local train batch size')
 parser.add_argument('-mn', '--model_name', type=str, default='MLP(10)', help='the model to train')
 parser.add_argument('-lr', "--learning_rate", type=float, default=0.1,help="learning rate, use value from origin paper as default")
 parser.add_argument('-vf', "--val_freq", type=int, default=5, help="model validation frequency(of communications)")
 parser.add_argument('-sf', '--save_freq', type=int, default=20, help='global model save frequency(of communication)')
-parser.add_argument('-ncomm', '--num_comm', type=int, default=300,help='number of communications')  # 这个对应结果communication epoch()
+parser.add_argument('-ncomm', '--num_comm', type=int, default=300,help='number of communications') 
 parser.add_argument('-sp', '--save_path', type=str, default='./checkpoints', help='the saving path of checkpoints')
 parser.add_argument('-iid', '--IID', type=int, default=0, help='the way to allocate data to clients')
 parser.add_argument('-isReS', '--Resampling', type=int, default=1 ,help='whether use a Parallel reasmpling method in client data（1 use，0 not use）')
@@ -162,7 +162,7 @@ if __name__ == "__main__":
 
                 results_file = 'KF_{}.csv'.format(i_kf)
                 data_file = os.path.join(data_file_path, results_file)
-                # 将数据写入文件中
+  【
                 with open(data_file, 'w', encoding='utf-8', newline='') as f:
                     writer = csv.writer(f)
                     writer.writerow(['communication_epoch', 'train_loss', 'test_loss', 'Training Time(s)', 'Gmean',
@@ -201,9 +201,9 @@ if __name__ == "__main__":
                         list_nums_local_data.append(copy.deepcopy(myClients.clients_set[client]).Size_dataset)
 
                         if client not in client_sampling_rates:
-                            Over_sr = np.random.uniform(10, 80)  # 初始过采样率
-                            Under_sr = np.random.uniform(10, 80)  # 初始欠采样率
-                            client_sampling_rates[client] = (Over_sr, Under_sr)  # 存储客户端的采样率
+                            Over_sr = np.random.uniform(10, 80) 
+                            Under_sr = np.random.uniform(10, 80)  
+                            client_sampling_rates[client] = (Over_sr, Under_sr)  
 
                         if client not in client_local_fitness:
                             client_local_fitness[client] = -np.inf
