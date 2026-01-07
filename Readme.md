@@ -1,5 +1,6 @@
-#Introduction
-An adaptive sampling federated learning framework
+ #Introduction
+ 
+   An adaptive sampling federated learning framework
 
 
 
