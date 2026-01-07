@@ -1,5 +1,16 @@
-use_pytorch 是基于pytorch模型简历的联邦学习架构，运行Sever.py
+Introduction
+  An adaptive sampling federated learning framework
 
-数据处理，0为多数类，1为少数类。
 
-数据集先进行Standardization，对数据集进行标准化。然后对数据集分层十折交叉划分。
+
+
+
+Environment and Dataset
+
+  Data sets are all from open source data. When using, it should be standardized first, and then it should be verified by layered cross 10% discount.
+  Note that 0 is a majority class and 1 is a minority class.
+  The environment configuration file is in environment.yaml
+
+How to use 
+
+  Use_pytorch is a federal learning architecture based on the resume of pytorch model. It needs to run sever.py when running the framework.
